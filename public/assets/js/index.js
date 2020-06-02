@@ -4,10 +4,10 @@ var $saveNoteBtn = $(".save-note");
 var $newNoteBtn = $(".new-note");
 var $noteList = $(".list-container .list-group");
 
-// activeNote is used to keep track of the note in the textarea
+// activeNote used to keep track of the note 
 var activeNote = {};
 
-// A function for getting all notes from the db
+//function for getting all notes from the db
 var getNotes = function() {
   return $.ajax({
     url: "/api/notes",
@@ -15,7 +15,7 @@ var getNotes = function() {
   });
 };
 
-// A function for saving a note to the db
+//function for saving a note to the db
 var saveNote = function(note) {
   return $.ajax({
     url: "/api/notes",
@@ -24,7 +24,7 @@ var saveNote = function(note) {
   });
 };
 
-// A function for deleting a note from the db
+//function for deleting a note from the db
 var deleteNote = function(id) {
   return $.ajax({
     url: "api/notes/" + id,
@@ -32,7 +32,7 @@ var deleteNote = function(id) {
   });
 };
 
-// If there is an activeNote, display it, otherwise render empty inputs
+// If there is an activeNote, display it
 var renderActiveNote = function() {
   $saveNoteBtn.hide();
 
@@ -49,7 +49,7 @@ var renderActiveNote = function() {
   }
 };
 
-// Get the note data from the inputs, save it to the db and update the view
+// Get the note data from inputs, save it to the db and update view
 var handleNoteSave = function() {
   var newNote = {
     title: $noteTitle.val(),
